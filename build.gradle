@@ -1,0 +1,44 @@
+apply from: 'buildsystem/ci.gradle'
+apply from: 'buildsystem/dependencies.gradle'
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.2'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+    }
+}
+
+allprojects {
+    ext {
+        androidApplicationId = 'org.rocklass.raspalarm.presentation'
+        androidVersionCode = 1
+        androidVersionName = "0.1.0"
+        testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
+        testApplicationId = 'org.rocklass.raspalarm.presentation.test'
+    }
+}
+
+task runDomainUnitTests(dependsOn: [':domain:test']) {
+    description 'Run unit tests for the domain layer.'
+}
+
+task runDataUnitTests(dependsOn: [':data:cleanTestDebugUnitTest', ':data:testDebugUnitTest']) {
+    description 'Run unit tests for the data layer.'
+}
+
+task runPresentationUnitTests(dependsOn: [':presentation:cleanTestDebugUnitTest', ':presentation:testDebugUnitTest']) {
+    description 'Run unit tests for the presentation layer.'
+}
+
+task runUnitTests(dependsOn: ['runDomainUnitTests', 'runDataUnitTests', 'runPresentationUnitTests']) {
+    description 'Run all unit tests.'
+}
+
+task runAcceptanceTests(dependsOn: [':presentation:connectedAndroidTest']) {
+    description 'Run application acceptance tests.'
+}
+
