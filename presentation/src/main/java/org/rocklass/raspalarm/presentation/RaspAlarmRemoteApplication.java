@@ -2,6 +2,7 @@ package org.rocklass.raspalarm.presentation;
 
 import android.app.Application;
 
+import org.rocklass.raspalarm.BuildConfig;
 import org.rocklass.raspalarm.presentation.internal.di.components.ApplicationComponent;
 import org.rocklass.raspalarm.presentation.internal.di.components.DaggerApplicationComponent;
 import org.rocklass.raspalarm.presentation.internal.di.modules.ApplicationModule;

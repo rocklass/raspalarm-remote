@@ -2,9 +2,9 @@ package org.rocklass.raspalarm.test.exception;
 
 import android.test.AndroidTestCase;
 
+import org.rocklass.raspalarm.R;
 import org.rocklass.raspalarm.data.exception.NetworkConnectionException;
 import org.rocklass.raspalarm.data.exception.UserNotFoundException;
-import org.rocklass.raspalarm.presentation.R;
 import org.rocklass.raspalarm.presentation.exception.ErrorMessageFactory;
 
 import static org.hamcrest.CoreMatchers.equalTo;

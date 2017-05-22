@@ -72,6 +72,7 @@ dependencies {
     compile presentationDependencies.recyclerView
     compile presentationDependencies.rxJava
     compile presentationDependencies.rxAndroid
+    compile presentationDependencies.firebase
     provided presentationDependencies.javaxAnnotation
 
     testCompile presentationTestDependencies.junit
@@ -85,3 +86,5 @@ dependencies {
     //Development
     compile developmentDependencies.leakCanary
 }
+
+apply plugin: 'com.google.gms.google-services'

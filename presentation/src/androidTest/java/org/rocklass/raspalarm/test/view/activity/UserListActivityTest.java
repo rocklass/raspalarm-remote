@@ -4,7 +4,7 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.test.ActivityInstrumentationTestCase2;
 
-import org.rocklass.raspalarm.presentation.R;
+import org.rocklass.raspalarm.R;
 import org.rocklass.raspalarm.presentation.view.activity.UserListActivity;
 
 import static org.hamcrest.CoreMatchers.is;

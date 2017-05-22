@@ -13,7 +13,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import org.rocklass.raspalarm.presentation.R;
+import org.rocklass.raspalarm.R;
 import org.rocklass.raspalarm.presentation.internal.di.components.UserComponent;
 import org.rocklass.raspalarm.presentation.model.UserModel;
 import org.rocklass.raspalarm.presentation.presenter.UserDetailsPresenter;

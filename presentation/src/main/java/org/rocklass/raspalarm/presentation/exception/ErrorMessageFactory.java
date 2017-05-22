@@ -2,9 +2,9 @@ package org.rocklass.raspalarm.presentation.exception;
 
 import android.content.Context;
 
+import org.rocklass.raspalarm.R;
 import org.rocklass.raspalarm.data.exception.NetworkConnectionException;
 import org.rocklass.raspalarm.data.exception.UserNotFoundException;
-import org.rocklass.raspalarm.presentation.R;
 
 /**
  * Factory used to create error messages from an Exception as a condition.

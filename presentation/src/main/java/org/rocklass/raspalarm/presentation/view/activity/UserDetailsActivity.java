@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
 
-import org.rocklass.raspalarm.presentation.R;
+import org.rocklass.raspalarm.R;
 import org.rocklass.raspalarm.presentation.internal.di.HasComponent;
 import org.rocklass.raspalarm.presentation.internal.di.components.DaggerUserComponent;
 import org.rocklass.raspalarm.presentation.internal.di.components.UserComponent;

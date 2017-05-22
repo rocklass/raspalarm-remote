@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "639611356975",
+    "firebase_url": "https://raspalarm-ae350.firebaseio.com",
+    "project_id": "raspalarm-ae350",
+    "storage_bucket": "raspalarm-ae350.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:639611356975:android:9dfa330bb9600c9b",
+        "android_client_info": {
+          "package_name": "org.rocklass.raspalarm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "639611356975-610rkklldh87vpikebjpsu2oacb4v1h7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNSTVQAGftxgeuu7GA2JGgKF-fch3v5WE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

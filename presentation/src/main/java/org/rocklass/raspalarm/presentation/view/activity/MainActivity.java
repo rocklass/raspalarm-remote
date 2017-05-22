@@ -3,11 +3,12 @@ package org.rocklass.raspalarm.presentation.view.activity;
 import android.os.Bundle;
 import android.widget.Button;
 
+import org.rocklass.raspalarm.R;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import org.rocklass.raspalarm.presentation.R;
 
 /**
  * Main application screen. This is the app entry point.

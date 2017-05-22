@@ -10,7 +10,7 @@ import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-import org.rocklass.raspalarm.presentation.R;
+import org.rocklass.raspalarm.R;
 import org.rocklass.raspalarm.presentation.model.UserModel;
 
 import java.util.Collection;
