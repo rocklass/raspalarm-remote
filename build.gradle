@@ -14,11 +14,11 @@ buildscript {
 
 allprojects {
     ext {
-        androidApplicationId = 'org.rocklass.raspalarm.presentation'
+        androidApplicationId = 'org.rocklass.raspalarm'
         androidVersionCode = 1
         androidVersionName = "0.1.0"
         testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
-        testApplicationId = 'org.rocklass.raspalarm.presentation.test'
+        testApplicationId = 'org.rocklass.raspalarm.test'
     }
 }
 
