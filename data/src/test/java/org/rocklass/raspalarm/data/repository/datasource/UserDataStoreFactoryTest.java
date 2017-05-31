@@ -1,11 +1,11 @@
 package org.rocklass.raspalarm.data.repository.datasource;
 
-import org.rocklass.raspalarm.data.ApplicationTestCase;
-import org.rocklass.raspalarm.data.cache.UserCache;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
-import org.robolectric.RuntimeEnvironment;
+import org.rocklass.raspalarm.data.ApplicationTestCase;
+import org.rocklass.raspalarm.data.cache.UserCache;
+import org.rocklass.raspalarm.data.net.UserRestApi;
 
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
@@ -22,10 +22,12 @@ public class UserDataStoreFactoryTest extends ApplicationTestCase {
 
     @Mock
     private UserCache mockUserCache;
+    @Mock
+    private UserRestApi mockUserRestApi;
 
     @Before
     public void setUp() {
-        userDataStoreFactory = new UserDataStoreFactory(RuntimeEnvironment.application, mockUserCache);
+        userDataStoreFactory = new UserDataStoreFactory(mockUserCache, mockUserRestApi);
     }
 
     @Test

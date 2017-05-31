@@ -2,7 +2,7 @@ package org.rocklass.raspalarm.data.repository.datasource;
 
 import org.rocklass.raspalarm.data.cache.UserCache;
 import org.rocklass.raspalarm.data.entity.UserEntity;
-import org.rocklass.raspalarm.data.net.RestApi;
+import org.rocklass.raspalarm.data.net.UserRestApi;
 
 import io.reactivex.Observable;
 
@@ -13,27 +13,27 @@ import java.util.List;
  */
 class CloudUserDataStore implements UserDataStore {
 
-    private final RestApi restApi;
+    private final UserRestApi userRestApi;
     private final UserCache userCache;
 
     /**
      * Construct a {@link UserDataStore} based on connections to the api (Cloud).
      *
-     * @param restApi   The {@link RestApi} implementation to use.
+     * @param userRestApi   The {@link UserRestApi} implementation to use.
      * @param userCache A {@link UserCache} to cache data retrieved from the api.
      */
-    CloudUserDataStore(RestApi restApi, UserCache userCache) {
-        this.restApi = restApi;
+    CloudUserDataStore(final UserRestApi userRestApi, UserCache userCache) {
+        this.userRestApi = userRestApi;
         this.userCache = userCache;
     }
 
     @Override
     public Observable<List<UserEntity>> userEntityList() {
-        return this.restApi.userEntityList();
+        return this.userRestApi.userEntityList();
     }
 
     @Override
     public Observable<UserEntity> userEntityDetails(final int userId) {
-        return this.restApi.userEntityById(userId).doOnNext(CloudUserDataStore.this.userCache::put);
+        return this.userRestApi.userEntityById(userId).doOnNext(CloudUserDataStore.this.userCache::put);
     }
 }

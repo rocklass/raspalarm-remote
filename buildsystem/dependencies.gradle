@@ -23,6 +23,7 @@ ext {
     okHttpVersion = '3.8.0'
     arrowVersion = '1.0.0'
     firebaseVersion = '10.2.6'
+    retrofitVersion = '2.3.0'
 
     //Testing
     robolectricVersion = '3.3.2'
@@ -74,25 +75,28 @@ ext {
     ]
 
     dataDependencies = [
-            daggerCompiler    : "com.google.dagger:dagger-compiler:${daggerVersion}",
-            dagger            : "com.google.dagger:dagger:${daggerVersion}",
-            okHttp            : "com.squareup.okhttp3:okhttp:${okHttpVersion}",
-            gson              : "com.google.code.gson:gson:${gsonVersion}",
-            rxJava            : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
-            rxAndroid         : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
-            javaxAnnotation   : "javax.annotation:javax.annotation-api:${javaxAnnotationVersion}",
-            javaxInject       : "javax.inject:javax.inject:${javaxInjectVersion}",
-            androidAnnotations: "com.android.support:support-annotations:${androidSupportVersion}"
+            daggerCompiler       : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger               : "com.google.dagger:dagger:${daggerVersion}",
+            okHttp               : "com.squareup.okhttp3:okhttp:${okHttpVersion}",
+            gson                 : "com.google.code.gson:gson:${gsonVersion}",
+            rxJava               : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            rxAndroid            : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+            javaxAnnotation      : "javax.annotation:javax.annotation-api:${javaxAnnotationVersion}",
+            javaxInject          : "javax.inject:javax.inject:${javaxInjectVersion}",
+            androidAnnotations   : "com.android.support:support-annotations:${androidSupportVersion}",
+            retrofit             : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofitGsonConverter: "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            retrofitAdapterRxJava: "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}"
     ]
 
     dataTestDependencies = [
             junit      : "junit:junit:${jUnitVersion}",
             assertj    : "org.assertj:assertj-core:${assertJVersion}",
             mockito    : "org.mockito:mockito-core:${mockitoVersion}",
-            robolectric: "org.robolectric:robolectric:${robolectricVersion}",
+            robolectric: "org.robolectric:robolectric:${robolectricVersion}"
     ]
 
     developmentDependencies = [
-            leakCanary: "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}",
+            leakCanary: "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}"
     ]
 }

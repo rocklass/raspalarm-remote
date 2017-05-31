@@ -1,12 +1,9 @@
 package org.rocklass.raspalarm.data.repository.datasource;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 
 import org.rocklass.raspalarm.data.cache.UserCache;
-import org.rocklass.raspalarm.data.entity.mapper.UserEntityJsonMapper;
-import org.rocklass.raspalarm.data.net.RestApi;
-import org.rocklass.raspalarm.data.net.RestApiImpl;
+import org.rocklass.raspalarm.data.net.UserRestApi;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -17,13 +14,13 @@ import javax.inject.Singleton;
 @Singleton
 public class UserDataStoreFactory {
 
-    private final Context context;
     private final UserCache userCache;
+    private final UserRestApi userRestApi;
 
     @Inject
-    UserDataStoreFactory(@NonNull Context context, @NonNull UserCache userCache) {
-        this.context = context.getApplicationContext();
+    UserDataStoreFactory(@NonNull UserCache userCache, @NonNull UserRestApi userRestApi) {
         this.userCache = userCache;
+        this.userRestApi = userRestApi;
     }
 
     /**
@@ -45,9 +42,6 @@ public class UserDataStoreFactory {
      * Create {@link UserDataStore} to retrieve data from the Cloud.
      */
     public UserDataStore createCloudDataStore() {
-        final UserEntityJsonMapper userEntityJsonMapper = new UserEntityJsonMapper();
-        final RestApi restApi = new RestApiImpl(this.context, userEntityJsonMapper);
-
-        return new CloudUserDataStore(restApi, this.userCache);
+        return new CloudUserDataStore(userRestApi, this.userCache);
     }
 }
