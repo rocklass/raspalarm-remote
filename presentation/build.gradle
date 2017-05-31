@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     def globalConfiguration = rootProject.extensions.getByName("ext")
@@ -66,7 +65,8 @@ dependencies {
     compile project(':domain')
     compile project(':data')
 
-    apt presentationDependencies.daggerCompiler
+    annotationProcessor presentationDependencies.daggerCompiler
+    annotationProcessor presentationDependencies.butterKnifeCompiler
     compile presentationDependencies.dagger
     compile presentationDependencies.butterKnife
     compile presentationDependencies.recyclerView
@@ -81,7 +81,9 @@ dependencies {
     androidTestCompile presentationTestDependencies.mockito
     androidTestCompile presentationTestDependencies.dexmakerMockito
     androidTestCompile presentationTestDependencies.espresso
-    androidTestCompile presentationTestDependencies.testingSupportLib
+    androidTestCompile presentationTestDependencies.testRunner
+    androidTestCompile presentationTestDependencies.testRules
+    androidTestCompile presentationTestDependencies.androidAnnotations
 
     //Development
     compile developmentDependencies.leakCanary

@@ -5,7 +5,7 @@ import android.widget.Button;
 
 import org.rocklass.raspalarm.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -15,7 +15,7 @@ import butterknife.OnClick;
  */
 public class MainActivity extends BaseActivity {
 
-    @Bind (R.id.btn_LoadData)
+    @BindView (R.id.btn_LoadData)
     Button btn_LoadData;
 
     @Override

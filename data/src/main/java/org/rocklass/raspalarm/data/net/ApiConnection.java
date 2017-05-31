@@ -2,14 +2,14 @@ package org.rocklass.raspalarm.data.net;
 
 import android.support.annotation.Nullable;
 
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
 
 /**
  * Api Connection class used to retrieve data from the cloud.
@@ -20,6 +20,8 @@ class ApiConnection implements Callable<String> {
 
     private static final String CONTENT_TYPE_LABEL = "Content-Type";
     private static final String CONTENT_TYPE_VALUE_JSON = "application/json; charset=utf-8";
+    private static final int READ_TIMEOUT_IN_MILLISECONDS = 10000;
+    private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 15000;
 
     private URL url;
     private String response;
@@ -45,7 +47,7 @@ class ApiConnection implements Callable<String> {
     }
 
     private void connectToApi() {
-        OkHttpClient okHttpClient = this.createClient();
+        final OkHttpClient okHttpClient = this.createClient();
         final Request request = new Request.Builder()
                 .url(this.url)
                 .addHeader(CONTENT_TYPE_LABEL, CONTENT_TYPE_VALUE_JSON)
@@ -60,11 +62,10 @@ class ApiConnection implements Callable<String> {
     }
 
     private OkHttpClient createClient() {
-        final OkHttpClient okHttpClient = new OkHttpClient();
-        okHttpClient.setReadTimeout(10000, TimeUnit.MILLISECONDS);
-        okHttpClient.setConnectTimeout(15000, TimeUnit.MILLISECONDS);
-
-        return okHttpClient;
+        return new OkHttpClient.Builder()
+                .readTimeout(READ_TIMEOUT_IN_MILLISECONDS, TimeUnit.MILLISECONDS)
+                .connectTimeout(CONNECT_TIMEOUT_IN_MILLISECONDS, TimeUnit.MILLISECONDS)
+                .build();
     }
 
     @Override

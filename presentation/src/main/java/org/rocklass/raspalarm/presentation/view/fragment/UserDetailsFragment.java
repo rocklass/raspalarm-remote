@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -33,21 +33,21 @@ public class UserDetailsFragment extends BaseFragment implements UserDetailsView
     @Inject
     UserDetailsPresenter userDetailsPresenter;
 
-    @Bind (R.id.iv_cover)
+    @BindView (R.id.iv_cover)
     AutoLoadImageView iv_cover;
-    @Bind (R.id.tv_fullname)
+    @BindView (R.id.tv_fullname)
     TextView tv_fullname;
-    @Bind (R.id.tv_email)
+    @BindView (R.id.tv_email)
     TextView tv_email;
-    @Bind (R.id.tv_followers)
+    @BindView (R.id.tv_followers)
     TextView tv_followers;
-    @Bind (R.id.tv_description)
+    @BindView (R.id.tv_description)
     TextView tv_description;
-    @Bind (R.id.rl_progress)
+    @BindView (R.id.rl_progress)
     RelativeLayout rl_progress;
-    @Bind (R.id.rl_retry)
+    @BindView (R.id.rl_retry)
     RelativeLayout rl_retry;
-    @Bind (R.id.bt_retry)
+    @BindView (R.id.bt_retry)
     Button bt_retry;
 
     public static UserDetailsFragment forUser(int userId) {
@@ -100,7 +100,6 @@ public class UserDetailsFragment extends BaseFragment implements UserDetailsView
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.unbind(this);
     }
 
     @Override

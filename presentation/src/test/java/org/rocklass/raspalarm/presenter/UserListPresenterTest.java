@@ -2,6 +2,8 @@ package org.rocklass.raspalarm.presenter;
 
 import android.content.Context;
 
+import org.mockito.ArgumentMatchers;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.rocklass.raspalarm.domain.interactor.GetUserList;
 import org.rocklass.raspalarm.presentation.mapper.UserModelDataMapper;
 import org.rocklass.raspalarm.presentation.presenter.UserListPresenter;
@@ -13,19 +15,15 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
 
-import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.verify;
 
 @RunWith (MockitoJUnitRunner.class)
 public class UserListPresenterTest {
 
-    private UserListPresenter userListPresenter;
+    private UserListPresenter sut;
 
-    @Mock
-    private Context mockContext;
     @Mock
     private UserListView mockUserListView;
     @Mock
@@ -35,19 +33,17 @@ public class UserListPresenterTest {
 
     @Before
     public void setUp() {
-        userListPresenter = new UserListPresenter(mockGetUserList, mockUserModelDataMapper);
-        userListPresenter.setView(mockUserListView);
+        sut = new UserListPresenter(mockGetUserList, mockUserModelDataMapper);
+        sut.setView(mockUserListView);
     }
 
     @Test
     @SuppressWarnings ("unchecked")
     public void testUserListPresenterInitialize() {
-        given(mockUserListView.context()).willReturn(mockContext);
-
-        userListPresenter.initialize();
+        sut.initialize();
 
         verify(mockUserListView).hideRetry();
         verify(mockUserListView).showLoading();
-        verify(mockGetUserList).execute(any(DisposableObserver.class), any(Void.class));
+        verify(mockGetUserList).execute(any(DisposableObserver.class), ArgumentMatchers.<Void>isNull());
     }
 }

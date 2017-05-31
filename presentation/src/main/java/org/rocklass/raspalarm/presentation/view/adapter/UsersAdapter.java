@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import org.rocklass.raspalarm.R;
@@ -87,7 +87,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
     }
 
     static class UserViewHolder extends RecyclerView.ViewHolder {
-        @Bind (R.id.title)
+        @BindView (R.id.title)
         TextView textViewTitle;
 
         UserViewHolder(View itemView) {

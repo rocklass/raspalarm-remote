@@ -1,7 +1,6 @@
 package org.rocklass.raspalarm.presenter;
 
-import android.content.Context;
-
+import org.mockito.junit.MockitoJUnitRunner;
 import org.rocklass.raspalarm.domain.interactor.GetUserDetails;
 import org.rocklass.raspalarm.domain.interactor.GetUserDetails.Params;
 import org.rocklass.raspalarm.presentation.mapper.UserModelDataMapper;
@@ -14,9 +13,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
 
-import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.verify;
 
@@ -25,10 +22,8 @@ public class UserDetailsPresenterTest {
 
     private static final int USER_ID = 1;
 
-    private UserDetailsPresenter userDetailsPresenter;
+    private UserDetailsPresenter sut;
 
-    @Mock
-    private Context mockContext;
     @Mock
     private UserDetailsView mockUserDetailsView;
     @Mock
@@ -38,16 +33,14 @@ public class UserDetailsPresenterTest {
 
     @Before
     public void setUp() {
-        userDetailsPresenter = new UserDetailsPresenter(mockGetUserDetails, mockUserModelDataMapper);
-        userDetailsPresenter.setView(mockUserDetailsView);
+        sut = new UserDetailsPresenter(mockGetUserDetails, mockUserModelDataMapper);
+        sut.setView(mockUserDetailsView);
     }
 
     @Test
     @SuppressWarnings ("unchecked")
     public void testUserDetailsPresenterInitialize() {
-        given(mockUserDetailsView.context()).willReturn(mockContext);
-
-        userDetailsPresenter.initialize(USER_ID);
+        sut.initialize(USER_ID);
 
         verify(mockUserDetailsView).hideRetry();
         verify(mockUserDetailsView).showLoading();

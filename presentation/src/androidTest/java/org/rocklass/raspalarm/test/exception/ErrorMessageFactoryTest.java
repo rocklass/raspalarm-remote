@@ -1,34 +1,34 @@
 package org.rocklass.raspalarm.test.exception;
 
-import android.test.AndroidTestCase;
+import android.support.test.runner.AndroidJUnit4;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.rocklass.raspalarm.R;
 import org.rocklass.raspalarm.data.exception.NetworkConnectionException;
 import org.rocklass.raspalarm.data.exception.UserNotFoundException;
 import org.rocklass.raspalarm.presentation.exception.ErrorMessageFactory;
 
+import static android.support.test.InstrumentationRegistry.getTargetContext;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class ErrorMessageFactoryTest extends AndroidTestCase {
+@RunWith (AndroidJUnit4.class)
+public class ErrorMessageFactoryTest {
 
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
+    @Test
     public void testNetworkConnectionErrorMessage() {
-        String expectedMessage = getContext().getString(R.string.exception_message_no_connection);
-        String actualMessage = ErrorMessageFactory.create(getContext(),
-                new NetworkConnectionException());
+        final String expectedMessage = getTargetContext().getString(R.string.exception_message_no_connection);
+        final String actualMessage = ErrorMessageFactory.create(getTargetContext(), new NetworkConnectionException());
 
         assertThat(actualMessage, is(equalTo(expectedMessage)));
     }
 
+    @Test
     public void testUserNotFoundErrorMessage() {
-        String expectedMessage = getContext().getString(R.string.exception_message_user_not_found);
-        String actualMessage = ErrorMessageFactory.create(getContext(), new UserNotFoundException());
+        final String expectedMessage = getTargetContext().getString(R.string.exception_message_user_not_found);
+        final String actualMessage = ErrorMessageFactory.create(getTargetContext(), new UserNotFoundException());
 
         assertThat(actualMessage, is(equalTo(expectedMessage)));
     }
