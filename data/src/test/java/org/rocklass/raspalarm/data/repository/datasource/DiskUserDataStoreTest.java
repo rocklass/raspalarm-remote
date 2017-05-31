@@ -1,5 +1,6 @@
 package org.rocklass.raspalarm.data.repository.datasource;
 
+import org.mockito.junit.MockitoJUnitRunner;
 import org.rocklass.raspalarm.data.cache.UserCache;
 import org.junit.Before;
 import org.junit.Rule;
@@ -7,7 +8,6 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.mockito.Mockito.verify;
 

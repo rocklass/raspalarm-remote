@@ -1,5 +1,6 @@
 package org.rocklass.raspalarm.data.repository;
 
+import org.mockito.junit.MockitoJUnitRunner;
 import org.rocklass.raspalarm.data.entity.UserEntity;
 import org.rocklass.raspalarm.data.entity.mapper.UserEntityDataMapper;
 import org.rocklass.raspalarm.data.repository.datasource.UserDataStore;
@@ -15,7 +16,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.anyInt;

@@ -1,10 +1,10 @@
 package org.rocklass.raspalarm.data.cache.serializer;
 
+import org.mockito.junit.MockitoJUnitRunner;
 import org.rocklass.raspalarm.data.entity.UserEntity;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
