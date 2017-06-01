@@ -16,8 +16,8 @@ import org.rocklass.raspalarm.presentation.view.fragment.UserDetailsFragment;
  */
 public class UserDetailsActivity extends BaseActivity implements HasComponent<UserComponent> {
 
-    private static final String INTENT_EXTRA_PARAM_USER_ID = "org.android10.INTENT_PARAM_USER_ID";
-    private static final String INSTANCE_STATE_PARAM_USER_ID = "org.android10.STATE_PARAM_USER_ID";
+    private static final String INTENT_EXTRA_PARAM_USER_ID = "org.rocklass.raspalarm.INTENT_PARAM_USER_ID";
+    private static final String INSTANCE_STATE_PARAM_USER_ID = "org.rocklass.raspalarm.STATE_PARAM_USER_ID";
 
     public static Intent getCallingIntent(Context context, int userId) {
         Intent callingIntent = new Intent(context, UserDetailsActivity.class);
