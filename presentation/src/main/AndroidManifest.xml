@@ -40,7 +40,7 @@
         </service>
 
         <service
-            android:name=".presentation.service.InstanceIDService">
+            android:name=".presentation.service.DeviceService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
             </intent-filter>
