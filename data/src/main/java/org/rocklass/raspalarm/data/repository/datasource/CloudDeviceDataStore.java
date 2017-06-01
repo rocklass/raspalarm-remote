@@ -23,6 +23,6 @@ class CloudDeviceDataStore implements DeviceDataStore {
 
     @Override
     public Observable<DeviceEntity> deviceEntity(final String token) {
-        return this.deviceRestApi.putDevice(token);
+        return this.deviceRestApi.putDevice(new DeviceEntity(token));
     }
 }
