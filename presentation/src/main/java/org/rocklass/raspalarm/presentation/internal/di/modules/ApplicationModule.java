@@ -5,6 +5,7 @@ import android.content.Context;
 import org.rocklass.raspalarm.data.cache.UserCache;
 import org.rocklass.raspalarm.data.cache.UserCacheImpl;
 import org.rocklass.raspalarm.data.executor.JobExecutor;
+import org.rocklass.raspalarm.data.net.DeviceRestApi;
 import org.rocklass.raspalarm.data.net.RestApiFactory;
 import org.rocklass.raspalarm.data.net.UserRestApi;
 import org.rocklass.raspalarm.data.repository.UserDataRepository;
@@ -64,7 +65,13 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    UserRestApi provideRestApi() {
+    UserRestApi provideUserRestApi() {
         return new RestApiFactory().getUserRestApi();
+    }
+
+    @Provides
+    @Singleton
+    DeviceRestApi provideDeviceRestApi() {
+        return new RestApiFactory().getDeviceRestApi();
     }
 }
